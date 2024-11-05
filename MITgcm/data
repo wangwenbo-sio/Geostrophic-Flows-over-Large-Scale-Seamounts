@@ -1,0 +1,81 @@
+# ====================
+# | Model parameters |
+# ====================
+#
+# Continuous equation parameters
+ &PARM01
+ tRefFile='tRef',
+ sRef=550*35.,
+ viscAz=1.E-3,
+ viscAh=1.E-2,
+ no_slip_sides=.FALSE.,
+ no_slip_bottom=.FALSE.,
+ diffKhT=1.E-2,
+ diffKzT=1.E-3,
+# implicitDiffusion=.TRUE.
+# implicitViscosity=.TRUE. 
+ f0=5.E-5,
+ beta=0.E-11,
+ eosType='LINEAR',
+ tAlpha=2.E-4,
+ sBeta =0.E-4,
+ gravity=9.81,
+ rigidLid=.FALSE.,
+ implicitFreeSurface=.TRUE.,
+ exactConserv=.TRUE.
+ nonHydrostatic=.TRUE.,
+ hFacMin=0.2,
+# implicSurfPress=0.5,
+# implicDiv2DFlow=0.5,
+# nonlinFreeSurf=3,
+ hFacInf=0.2,
+ hFacSup=1.8,
+ saltStepping=.FALSE.,
+#- not safe to use globalFiles in multi-processors runs
+#globalFiles=.TRUE.,
+ useSingleCpuIO=.TRUE.,
+ readBinaryPrec=64,
+ writeBinaryPrec=32,
+ writeStatePrec=32,
+ &
+
+# Elliptic solver parameters
+ &PARM02
+ cg2dMaxIters=1000,
+ cg2dTargetResidual=1.E-13,
+ cg3dMaxIters=400,
+ cg3dTargetResidual=1.E-13,
+ &
+
+# Time stepping parameters
+ &PARM03
+ nIter0=0,
+ nTimeSteps=504001,
+ deltaT=2.5,
+ abEps=0.1,
+ pChkptFreq=0.,
+ chkptFreq=0.,
+ dumpFreq=86400.,
+ monitorFreq=3600.,
+ monitorSelect=2,
+# periodicExternalForcing=.TRUE.,
+# externForcingPeriod=3600.,
+# externForcingCycle=5184000.,
+ &
+
+# Gridding parameters
+ &PARM04
+ usingCartesianGrid=.TRUE.,
+ delXfile='delXvar',
+ delY=5.E3,
+ delRfile='delZvar',
+ &
+
+# Input datasets
+ &PARM05
+ hydrogThetaFile='T.init',
+# vVelInitFile='V.init', 
+ bathyFile='topo_2.tall',
+# zonalWindFile='unif_0p5f.phi0',
+# meridWindFile='tauy.wind',
+ &
