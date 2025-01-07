@@ -1,8 +1,0 @@
-# Packages
- &PACKAGES
-# useOBCS=.TRUE.,
-# useKL10=.TRUE.,
- useMNC=.TRUE.,
- useDiagnostics=.TRUE.,
-# useKPP=.TRUE.,
- &
